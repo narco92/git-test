@@ -1,0 +1,30 @@
+Second Exemple.
+
+Il s'agit d'un programme contenu dans deux fichiers source. Par
+rapport a First, la partie consistant à lire/ecrire des fichiers png a
+ete mise dans un fichier readwritepng.c. Le header correspondant a ete
+cree.
+
+Ce second exemple permet de rappeler les dépendances
+qu'il peut y avoir entre de nombreux fichiers sources et d'introduire
+make
+
+cela permet de creer des libs personnelles et
+que du coup le code est maintenu beaucoup plus facilement.
+
+gcc -c readwritepng.c -I/opt/local/include
+gcc main.c -I/opt/local/include readwritepng.o -L/opt/local/lib -lpng -o second
+
+
+ajouter différents chemins pour les include et transformer le #include
+"readwritepng.h" en #include <readwritepng.h>
+
+
+Montrer l'interet de:
+#ifndef __READWRITEPNG_H__
+#define __READWRITEPNG_H__
+
+
+Monter egalement comment recompiler second lorsque :
+a/on ajoute une ligne de code dans readwritepng 
+b/on ajoute une ligne de code dans main.c
